@@ -8,7 +8,7 @@
 </head>
 <body>
   <p id="os"><b>OS:</b> </p>
-  <p <b>test6</b> </p>
+  <p <b>test7</b> </p>
   <p id="language"><b>Language:</b> </p>
   <p id="version"><b>Version:</b> </p>
   <p id="isInClient"><b>isInClient:</b> </p>
@@ -67,9 +67,22 @@
     }
 
     async function sendMsg() {
+      if (liff.getContext().type !== "none") {
+              await liff.sendMessages([
+                  {
+                      type: 'text',
+                      text: 'Hello, World!'
+                  }])
+              alert("yey")
+          }
     }
 
     function getContext() {
+      document.getElementById("type").append(liff.getContext().type)
+      document.getElementById("viewType").append(liff.getContext().viewType)
+      document.getElementById("utouId").append(liff.getContext().utouId)
+      document.getElementById("roomId").append(liff.getContext().roomId)
+      document.getElementById("groupId").append(liff.getContext().groupId)
     }
 
     async function getUserProfile() {
@@ -100,7 +113,7 @@
       await liff.init({ liffId: "1656753749-3yYgvkYR" })
       getEnvironment()
       getUserProfile()
-      // getContext()
+      getContext()
       // getFriendship()
       // createUniversalLink()
     }
