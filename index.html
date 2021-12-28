@@ -8,7 +8,7 @@
 </head>
 <body>
   <p id="os"><b>OS:</b> </p>
-  <p <b>test2:</b> </p>
+  <p <b>test3</b> </p>
   <p id="language"><b>Language:</b> </p>
   <p id="version"><b>Version:</b> </p>
   <p id="isInClient"><b>isInClient:</b> </p>
@@ -73,11 +73,6 @@
     }
 
     async function getUserProfile() {
-        const profile = await liff.getProfile()
-        document.getElementById("pictureUrl").src = profile.pictureUrl
-        document.getElementById("userId").append(profile.userId)
-        document.getElementById("statusMessage").append(profile.statusMessage)
-        document.getElementById("displayName").append(profile.displayName)
     }
 
     function getEnvironment() {
