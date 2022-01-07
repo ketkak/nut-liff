@@ -1,0 +1,281 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>
+        อบจ.ปทุมธานี ลงทะเบียน COVID-19
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/w3.css" />
+    <link href="/lib/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet" />
+    <style>
+    </style>
+    <link href="../css/global.css" rel="stylesheet" />
+    <style>
+        label {
+            font-weight: bold;
+        }
+
+        .error {
+            font-weight: normal !important;
+        }
+
+        .w3-container, .w3-panel {
+            padding: 0.01em 5px;
+        }
+
+        .w3-large {
+            font-size: 16px !important;
+        }
+
+        .w3-ul li {
+            padding: 5px 5px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        hr {
+            color: black;
+            padding: 2px;
+            margin: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="left">
+    </div>
+    <div class="main">
+        <div class="w3-container" style="padding: 0px;">
+
+            <div class="w3-container w3-cell" style="padding-right: 0px; padding-left: 0px; padding-bottom: 10px;">
+
+                <img src="../image/logotop.png" height="80px;" width="80px;" />
+            </div>
+            <div id="main" class="w3-container w3-cell">
+                <h3>
+                    อบจ.ปทุมธานี
+                    <br />
+                    <span style="font-size: 18px;">ลงทะเบียนฉีดวัคซีน COVID-19</span>
+                </h3>
+            </div>
+        </div>
+        <div class="w3-container " style="padding: 0px;">
+
+            <h4 class="w3-light-blue w3-center" style="text-shadow: 1px 1px 0 #fff; font-size: 16px;">ตรวจสอบและยืนยันสิทธิการรับวัคซีคโควิด 19</h4>
+
+            <p id="bookinginfo" class="w3-container">
+            </p>
+            <form id="frmmain" name="frmmain" class="w3-container" onsubmit="return false;">
+                <input type="hidden" id="cardid" name="cardid" />
+
+            </form>
+            <div id="id01" class="w3-modal">
+                <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width: 700px">
+                    <div class="w3-container">
+                        <div class="w3-center">
+                            <br>
+                            <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
+
+                        </div>
+                        <center><h4>ตรวจสอบและยืนยันสิทธิ<br />การรับวัคซีคโควิด 19</h4></center>
+                        <div class="w3-container w3-section" style="background-color: #DCDCDC">
+
+                            <p>
+                                <center><label id="lbname" name="lbname" style="font-size:26px;font-weight:bold;">นางสาว พิชชาภา เจียมปราชญ์</label></center>
+                            </p>
+                            <div class="w3-container w3-center">
+                                <h4>คุณยืนยันความประสงค์<br />ในการเข้ารับวัคซีนโควิด-19<br />ที่ทาง อบจ.ปทุมธานี ได้จัดสรรให้หรือไม่ ?</h4>
+                                <p>
+                                    <h4 style="color: red">เพื่อนำข้อมูลนี้ไปใช้ในการคำนวณ<br />ปริมาณวัคซีนในหน่วยงาน</h4>
+                                </p>
+
+                                <div class="w3-col m6">
+                                    <center><button class="w3-button w3-block w3-green w3-section w3-padding-large w3-centered" style="width:70%;font-size:26px;" onclick="_accept(1)">รับสิทธิ</button></center>
+                                </div>
+                                <div class="w3-col m6">
+                                    <center><button class="w3-button w3-block w3-section w3-padding-large w3-centered" style="background-color:#F4A460;width:70%;font-size:26px;" onclick="_accept(2)">ไม่รับสิทธิ</button><center>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="modal-success" class="modal fade" tabindex="-1" role="dialog">
+                <div class="modal-dialog modal-sm" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header  bg-success">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">!!! ยืนยันรับสิทธิ์สำเร็จ !!!</h4>
+                            <div id="messagename">ชื่อ - สกุล</div>
+                        </div>
+
+                        <div class="modal-footer media-middle">
+                            <button type="button" class="btn btn-success" id="btnsuccess" data-dismiss="modal">
+                                <i class="glyphicon glyphicon-remove"></i>
+                                ปิด
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="modal-success2" class="modal fade" tabindex="-1" role="dialog">
+                <div class="modal-dialog modal-sm" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header  bg-success">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">บันทึกข้อมูลเรียบร้อย</h4>
+                        </div>
+
+                        <div class="modal-footer media-middle">
+                            <button type="button" class="btn btn-success" id="btnsuccess/" data-dismiss="modal">
+                                <i class="glyphicon glyphicon-remove"></i>
+                                ปิด
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="modal-fail" class="modal fade" tabindex="-1" role="dialog">
+                <div class="modal-dialog modal-sm" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header  bg-danger">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">มีข้อผิดพลาด</h4>
+                        </div>
+                        <div class="modal-body bg-dander center-block">
+                            <center><i class="fa fa-times-circle fa-5x center-block" style="color:red;" aria-hidden="true"></i></center>
+                            <label id="error" name="error"></label>
+                        </div>
+                        <div class="modal-footer media-middle">
+                            <center>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">
+                                    <i class="glyphicon glyphicon-remove"></i>
+                                    ปิด
+                                </button>
+                            </center>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="right">
+    </div>
+</body>
+<script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+<script src="/lib/jquery.min.js"></script>
+<script src="/lib/jquery.blockUI.js"></script>
+<script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="/lib/global.js?cached=1"></script>
+<script src="/lib/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+<script src="/lib/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+<script src="/lib/bootstrap-datepicker/locales/bootstrap-datepicker.th.min.js"></script>
+<script src="/lib/bootstrap-datepicker/locales/bootstrap-datepicker-BE.js"></script>
+
+
+<script>
+    var _debugmode = 'false';
+
+    if (_debugmode == "true") {
+        sessionStorage.setItem('userId', "Ueba7aff7039059010c9b1903edfd3a9a");
+    }
+
+</script>
+
+
+<script>
+
+        liff.init({
+            liffId: "1656070675-yWaZ8qPr" // Use own liffId
+        }).then(() => {
+            liff.getProfile().then(function (profile) {
+                sessionStorage.setItem('userId', profile.userId);
+                sessionStorage.setItem('displayName', profile.displayName);
+                _GetRegisterInfo();
+            }).catch(function (error) {
+                // window.alert("Error getting profile: " + error.message);
+            });
+        }).catch((err) => {
+            liff.login();
+        });
+
+        function _confirm(cardid, fullname) {
+            $('#cardid').val(cardid);
+            $('#lbname').text(fullname);
+            document.getElementById('id01').style.display = 'block';
+        }
+
+        function _accept(cardid, fullname, confirmstatus) {
+            $('#cardid').val(cardid);
+            $('#lbname').text(fullname);
+           // $('#messagename').text(fullname);
+
+            blockUI();
+            $.ajax({
+                type: 'POST',
+                url: '/handler/callAPI.ashx',
+                crossDomain: true,
+                data: 'action=CONFIRMVACCINE&' + $('#frmmain').serialize() + "&cache=" + new Date().getTime() + '&confirmstatus=' + confirmstatus,
+                dataType: 'text',
+                success: function (responseData, textStatus, jqXHR) {
+                    $.unblockUI();
+                    var data = responseData
+
+                        document.getElementById('id01').style.display = 'none';
+                        $("#cardid").val('');
+                        _GetRegisterInfo();
+                        if (confirmstatus == 2) {
+
+                            $('#modal-success2').modal({ backdrop: 'static', keyboard: false });
+                        }
+                        else {
+
+                            $('#messagename').html(data);
+                            $('#modal-success').modal({ backdrop: 'static', keyboard: false });
+                        }
+
+
+                },
+                error: function (responseData, textStatus, errorThrown) {
+                    $.unblockUI();
+                    $('#error').text("เกิดข้อผิดพลาด");
+                    $('#modal-fail').modal({ backdrop: 'static', keyboard: false });
+                }
+            });
+        }
+
+        function _GetRegisterInfo() {
+            blockUI();
+            $.ajax({
+                type: 'GET',
+                url: '/handler/callAPI.ashx',
+                crossDomain: true,
+                data: 'action=SearchContactTemp&function=confirm&lineid=' + sessionStorage.getItem("userId") + "&cache=" + new Date().getTime(),
+                dataType: 'text',
+                success: function (responseData, textStatus, jqXHR) {
+                    $.unblockUI();
+                    var data = responseData;
+                    var varHTML = $('<textarea />').html(data).text();
+                    $('#bookinginfo').html(varHTML);
+
+                },
+                error: function (responseData, textStatus, errorThrown) {
+                    $.unblockUI();
+                    $('#error').text("เกิดข้อผิดพลาด");
+                    $('#modal-fail').modal({ backdrop: 'static', keyboard: false });
+                }
+            });
+        }
+
+        $(document).ready(function () {
+            if (_debugmode == "true") { _GetRegisterInfo(); }
+        });
+</script>
+
+</html>
